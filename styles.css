@@ -1,0 +1,214 @@
+:root {
+    --purple-main: #6b4fa3; 
+    --grid-line: #ccc;
+    --text-color: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.resume-container {
+    width: 210mm;
+    min-height: 297mm; 
+    background: #fff;
+    position: relative;
+    padding: 10mm 12mm 20mm 12mm; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.resume-container::before {
+    content: "";
+    position: absolute;
+    top: 6mm;
+    left: 6mm;
+    right: 6mm;
+    bottom: 6mm;
+    border: 0.5px dashed var(--grid-line);
+    pointer-events: none;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--grid-line);
+    padding: 2mm 5mm 6mm 5mm;
+    margin-bottom: 3mm;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: var(--purple-main);
+    font-weight: 700;
+    line-height: 1;
+    max-width: 70%;
+}
+
+/* Grid Layout */
+.grid-content {
+    display: grid;
+    grid-template-columns: 60mm 1fr;
+    flex-grow: 1;
+}
+
+/* Sidebar (Ліва частина) */
+.sidebar {
+    padding: 5mm 5mm 0 0;
+    border-right: 1px solid var(--purple-main);
+}
+
+.sidebar section {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--grid-line);
+}
+
+.sidebar h2 {
+    color: var(--purple-main);
+    font-size: 1rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.profile-img {
+    width: 100%;
+    border: 1px solid var(--purple-main);
+    margin-bottom: 8px;
+}
+
+.main-body {
+    padding: 5mm 0 0 10mm;
+}
+
+.main-body section {
+   
+    margin-bottom: 30px; 
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--grid-line);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.section-header h2 {
+    color: var(--purple-main);
+    font-size: 1.15rem;
+    margin-right: 15px;
+    text-transform: uppercase;
+}
+
+.section-line {
+    flex-grow: 1;
+    height: 1.2px;
+    background-color: var(--purple-main);
+}
+
+
+.main-body p, 
+.main-body li, 
+.details-text {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.main-body ul li {
+    list-style: none;
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 8px;
+}
+
+.main-body ul li::before {
+    content: "•";
+    color: var(--purple-main);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.edu-title {
+    color: var(--purple-main);
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.date-range {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #444;
+    display: block;
+    margin-bottom: 3px;
+}
+
+/* Фіксований футер */
+footer {
+    margin-top: auto;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #888;
+    z-index: 10;
+}
+
+
+@media print {
+    body { background: none; padding: 0; }
+    .resume-container { box-shadow: none; margin: 0; }
+}
+
+/* Кнопка перемикача тем */
+#themeToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    padding: 8px 15px;
+    background: var(--purple-main);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Налаштування нічної теми */
+body.dark-theme {
+    background-color: #1a1a1a;
+}
+
+body.dark-theme .resume-container {
+    background-color: #2d2d2d;
+    color: #eee;
+}
+
+body.dark-theme .main-body p, 
+body.dark-theme .main-body li,
+body.dark-theme .sidebar p {
+    color: #ccc;
+}
+
+body.dark-theme .header h1, 
+body.dark-theme h2 {
+    color: #bb86fc; 
+}
